@@ -1,0 +1,423 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>アームロボット制御API ’Elpis-ArmRobot-API’ [2013/07/25] &mdash; Elpis-Note 1.3 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Elpis-Note 1.3 documentation" href="../../index.html" />
+    <link rel="prev" title="AC100Vコントロール API ‘Elpis-ACLine-API’ [2014/07/22]" href="../ACLine-API/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ACLine-API/index.html" title="AC100Vコントロール API ‘Elpis-ACLine-API’ [2014/07/22]"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Elpis-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="api-elpis-armrobot-api-2013-07-25">
+<h1>アームロボット制御API　&#8217;Elpis-ArmRobot-API&#8217;               [2013/07/25]<a class="headerlink" href="#api-elpis-armrobot-api-2013-07-25" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>§0 本資料について<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>　本資料は、ArtifactNoiseが制作した資料であり、一部開発中の物も含まれている場合があります。</p>
+<p>　最新の情報、ご質問等は <a class="reference external" href="mailto:info&#37;&#52;&#48;ArtifactNoise&#46;com">info<span>&#64;</span>ArtifactNoise<span>&#46;</span>com</a> までご連絡ください。</p>
+</div>
+<div class="section" id="id2">
+<h2>§1.概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>「ArmRobotAPI」は、アーム型ロボットを操作する為のAPIです。</p>
+<p>以下の図がシステムの全体図です。</p>
+<a class="reference internal image-reference" href="../../_images/ElpisALL.png"><img alt="../../_images/ElpisALL.png" src="../../_images/ElpisALL.png" style="width: 523.0px; height: 305.5px;" /></a>
+</div>
+<div class="section" id="api">
+<h2>§2.API 情報<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">API Name:</th><td class="field-body">ArmRobot</td>
+</tr>
+<tr class="field-even field"><th class="field-name">開発日:</th><td class="field-body">2013/06/07</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">開発リーダー:</th><td class="field-body">Yuta Kitagami.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">プロジェクト参加者:</th><td class="field-body">YutaKitagami. Shota Kosimizu.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="arm">
+<h2>§3. ARMロボット操作画面<a class="headerlink" href="#arm" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="http://artifactnoise.com/ArmRobotAPI/"><img alt="ARMロボット操作画面" src="../../_images/blowser.png" style="width: 347.2px; height: 251.2px;" /></a>
+<p><a class="reference external" href="http://artifactnoise.com/ArmRobotAPI/">http://artifactnoise.com/ArmRobotAPI/</a></p>
+</div>
+<div class="section" id="id3">
+<h2>§4.API リスト<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="url">
+<h3>(1) URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http://elpis.artifactnoise.com:1234/ArmRobot/api">http://elpis.artifactnoise.com:1234/ArmRobot/api</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Method:</th><td class="field-body">POST</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>(2) リクエストパラメータ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="22%" />
+<col width="11%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+<th class="head">バージョン</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>hw_did</td>
+<td>&lt;Devaice ID&gt;</td>
+<td>デバイスID</td>
+<td>Ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>service_name</td>
+<td>&lt;SERVICE NAME&gt;</td>
+<td>サービス名</td>
+<td>Ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>api_ver</td>
+<td>1.0</td>
+<td>バージョン指定</td>
+<td>Ver1.0</td>
+<td>現在はVer1.0のみ</td>
+</tr>
+<tr class="row-odd"><td>arm</td>
+<td>0〜10</td>
+<td>アームの操作</td>
+<td>Ver1.0</td>
+<td>以下に説明あり</td>
+</tr>
+<tr class="row-even"><td>armtime</td>
+<td>0〜500</td>
+<td>アーム駆動時間</td>
+<td>Ver1.0</td>
+<td>標準値100</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h3>(3) パラメータ arm について<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="13%" />
+<col width="38%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>arm</td>
+<td>0</td>
+<td>停止</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>1</td>
+<td>モータ１　前転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>2</td>
+<td>モータ１　後転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>3</td>
+<td>モータ２　前転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>4</td>
+<td>モータ２　後転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>5</td>
+<td>モータ３　前転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>6</td>
+<td>モータ３　後転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>7</td>
+<td>モータ４　前転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>8</td>
+<td>モータ４　後転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>9</td>
+<td>モータ５　前転</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>10</td>
+<td>モータ５　後転</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h3>(4) 戻り値<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>戻り値に関しては、JSON形式になります。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="15%" />
+<col width="23%" />
+<col width="23%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+<th class="head">バージョン</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>hw_did</td>
+<td>&lt;USER ID&gt;</td>
+<td>ユーザーID</td>
+<td>Ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>service_name</td>
+<td>ArmRobot</td>
+<td>サービス名</td>
+<td>Ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>OK</td>
+<td>ハードウェアのステータス表示</td>
+<td>固定値</td>
+<td>現在はVer1.0のみ</td>
+</tr>
+<tr class="row-odd"><td>armtime</td>
+<td>0〜500</td>
+<td>アーム駆動時間</td>
+<td>Ver1.0</td>
+<td>標準値100</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h3>(5) サンプルコード<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">hw_did:</th><td class="field-body">5678</td>
+</tr>
+<tr class="field-even field"><th class="field-name">service_name:</th><td class="field-body">ArmRobot</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">arm:</th><td class="field-body">2</td>
+</tr>
+<tr class="field-even field"><th class="field-name">armtime:</th><td class="field-body">100</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">GET:</th><td class="field-body"><a class="reference external" href="http://kitagami.org:1234/ArmRobot/api?api_ver=01&amp;service_name=POST_TESTER&amp;arm=2&amp;armtime=100&amp;hw_did=5678">http://kitagami.org:1234/ArmRobot/api?api_ver=01&amp;service_name=POST_TESTER&amp;arm=2&amp;armtime=100&amp;hw_did=5678</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">POST:</th><td class="field-body">?api_ver=01&amp;service_name=POST_TESTER&amp;arm=2&amp;armtime=100&amp;hw_did=5678</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body">{service_name: ArmRobot, state: OK, armtime: 100, hw_did: 1234}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>§5.写真<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/IMG_1677.jpg"><img alt="../../_images/IMG_1677.jpg" src="../../_images/IMG_1677.jpg" style="width: 146.88px; height: 195.84px;" /></a>
+<a class="reference internal image-reference" href="../../_images/IMG_1684.jpg"><img alt="../../_images/IMG_1684.jpg" src="../../_images/IMG_1684.jpg" style="width: 146.88px; height: 195.84px;" /></a>
+<a class="reference internal image-reference" href="../../_images/IMG_1683.jpg"><img alt="../../_images/IMG_1683.jpg" src="../../_images/IMG_1683.jpg" style="width: 146.88px; height: 195.84px;" /></a>
+<a class="reference internal image-reference" href="../../_images/IMG_1672.jpg"><img alt="../../_images/IMG_1672.jpg" src="../../_images/IMG_1672.jpg" style="width: 146.88px; height: 195.84px;" /></a>
+</div>
+<div class="section" id="id9">
+<h2>§6.修正履歴<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2012/7/25</td>
+</tr>
+<tr class="field-even field"><th class="field-name">改版:</th><td class="field-body">2012/7/25 写真項目追加</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h2>§6.連絡先<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>　本記事の内容及び技術的ご質問について <a class="reference external" href="mailto:info&#37;&#52;&#48;artifactnoise&#46;com">info<span>&#64;</span>artifactnoise<span>&#46;</span>com</a> までご連絡ください。</p>
+<p>　本開発は研究や趣味の一環ではなく、ビジネス展開を目的とした開発です。
+御社のビジネスとご一緒に活躍出来れば幸いと考えています。</p>
+<p>　ビジネスに関してのお問い合わせも、<a class="reference external" href="mailto:info&#37;&#52;&#48;artifactnoise&#46;com">info<span>&#64;</span>artifactnoise<span>&#46;</span>com</a> までご連絡ください。</p>
+<div class="section" id="pdf">
+<h3>§7.本資料のPDFデータ<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://elpis.artifactnoise.com/Elpis/pdf/Service/armrobot/index.pdf">http://elpis.artifactnoise.com/Elpis/pdf/Service/armrobot/index.pdf</a></p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>§ 管理情報<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2013/07/11</td>
+</tr>
+<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">ArtifactNoise <a class="reference external" href="http://artifactnoise.com">http://artifactnoise.com</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">分類:</th><td class="field-body">Elpis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">開発参加者:</th><td class="field-body">Yuta Kitagami , Shota Koshimizu.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">アームロボット制御API　&#8217;Elpis-ArmRobot-API&#8217;               [2013/07/25]</a><ul>
+<li><a class="reference internal" href="#id1">§0 本資料について</a></li>
+<li><a class="reference internal" href="#id2">§1.概要</a></li>
+<li><a class="reference internal" href="#api">§2.API 情報</a></li>
+<li><a class="reference internal" href="#arm">§3. ARMロボット操作画面</a></li>
+<li><a class="reference internal" href="#id3">§4.API リスト</a><ul>
+<li><a class="reference internal" href="#url">(1) URL</a></li>
+<li><a class="reference internal" href="#id4">(2) リクエストパラメータ</a></li>
+<li><a class="reference internal" href="#id5">(3) パラメータ arm について</a></li>
+<li><a class="reference internal" href="#id6">(4) 戻り値</a></li>
+<li><a class="reference internal" href="#id7">(5) サンプルコード</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">§5.写真</a></li>
+<li><a class="reference internal" href="#id9">§6.修正履歴</a></li>
+<li><a class="reference internal" href="#id10">§6.連絡先</a><ul>
+<li><a class="reference internal" href="#pdf">§7.本資料のPDFデータ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11">§ 管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../ACLine-API/index.html"
+                        title="previous chapter">AC100Vコントロール API &#8216;Elpis-ACLine-API&#8217;             [2014/07/22]</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/Service/armrobot/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ACLine-API/index.html" title="AC100Vコントロール API ‘Elpis-ACLine-API’ [2014/07/22]"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Elpis-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, ArtifactNoise..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

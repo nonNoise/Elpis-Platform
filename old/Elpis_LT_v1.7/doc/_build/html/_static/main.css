@@ -1,0 +1,48 @@
+#header {
+  background-color: #a2e8fe;
+}
+
+#sidebar {
+  background-color: #4b7afd;
+  float: left;
+  width: 20%;
+}
+
+#document {
+  background-color: #f7fed3;
+  float:left;
+  width: 80%;
+}
+
+#footer {
+  background-color: #fcc1c1;
+  clear: both;
+}
+
+
+a.headerlink {
+    visibility: hidden;
+}
+
+h1:hover > a.headerlink,
+h2:hover > a.headerlink,
+h3:hover > a.headerlink,
+h4:hover > a.headerlink,
+h5:hover > a.headerlink,
+h6:hover > a.headerlink,
+dt:hover > a.headerlink {
+    visibility: visible;
+}
+
+h1 {
+  margin-top: 20px;
+  text-align: center;
+ }
+h2 {
+  margin-top: 20px;
+  font-size: 120%;
+ }
+h3 {
+  margin-top: 20px;
+  text-align: center;
+ }

@@ -1,0 +1,8 @@
+table.docutils td {
+         border: 1px solid black ;
+    }
+table.docutils {
+	border-collapse:collapse;
+    }
+
+.right_data{text-align:right;}

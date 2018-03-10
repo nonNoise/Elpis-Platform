@@ -1,0 +1,212 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Elpis 技術説明 [2013/07/21] &mdash; Elpis-Note 1.3 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Elpis-Note 1.3 documentation" href="../index.html" />
+    <link rel="next" title="Elpis 利用シーン [2013/08/01]" href="youscase.html" />
+    <link rel="prev" title="Elpis FrameWork" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="youscase.html" title="Elpis 利用シーン [2013/08/01]"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Elpis FrameWork"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Elpis-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="elpis-2013-07-21">
+<h1>Elpis 技術説明      [2013/07/21]<a class="headerlink" href="#elpis-2013-07-21" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>§0 本資料について<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>　本資料は、ArtifactNoiseが制作した資料であり、一部開発中の物も含まれている場合があります。</p>
+<p>　最新の情報、ご質問等は <a class="reference external" href="mailto:info&#37;&#52;&#48;ArtifactNoise&#46;com">info<span>&#64;</span>ArtifactNoise<span>&#46;</span>com</a> までご連絡ください。</p>
+</div>
+<div class="section" id="elpis">
+<h2>§1 Elpis とは何ですか？<a class="headerlink" href="#elpis" title="Permalink to this headline">¶</a></h2>
+<p>　Elpisとは、ArtifactNoiseが制作した「Webとハードウェアをシームレスに繋げる為のフレームワーク」です。
+Elpisは、ハードウェア開発で培ったノウハウと、Webアプリケーション技術をうまく融合したフレームワークです。
+他のWebフレームワークとは違いElpisはハードウェアに特化しています。
+また、ハードウェア特有のリアルタイムな動きや、安定した動作を得意としています。
+ElpisはハードウェアをWeb-APIとして提供することが出来る為、
+既存のブラウザやiPhone,Android等にもハードウェアを扱う事が出来ます。</p>
+<a class="reference internal image-reference" href="../_images/ElpisLogo_01.png"><img alt="../_images/ElpisLogo_01.png" src="../_images/ElpisLogo_01.png" style="width: 171.2px; height: 78.6px;" /></a>
+</div>
+<div class="section" id="id2">
+<h2>§2 Elpisはどのとうに動きますか？<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>　Elpisは、サーバーとハードウェアとWebサービスとのシームレスな接続を実現します。
+Elpisは三ブロックで構成されており、ハードウェアと双方向通信を行うブロックと、
+操作や表示を行うWeb-API処理ブロックと、それらを連携させ処理を行う中央ブロックの三種によって成り立っています。</p>
+<p>本章では、Elpisとハードウェア、Elpis本体、ElpisとWEB-API(ブラウザ等)の三ブロックで説明を行います。</p>
+<a class="reference internal image-reference" href="../_images/ElpisSystem.png"><img alt="../_images/ElpisSystem.png" src="../_images/ElpisSystem.png" style="width: 669.6px; height: 473.7px;" /></a>
+<div class="section" id="id3">
+<h3>1). Elpisとハードウェアの動作<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>　ハードウェアはクライアントとしてサーバに接続します。
+ハードウェアをクライアントで動作させるため、ハードウェアがある場所の、ネットワーク環境に左右される事無く通信を行う事が出来ます。
+サーバーとハードウェアとの通信は、一般的なブラウザとサーバーとの関係と変わらず、ハードウェアはHTTPでサーバーとの通信を行います。
+サーバーとハードウェアはElpisを使い、最短0.01sで双方向通信が可能となります。（実測値AN調べ）
+ハードウェアにはオリジナルIDを含むことで、ハードウェア一台一台選択して操作を行う事が出来ます。</p>
+<p>　Elpisで扱うハードウェアは、ArtiafctNoiseが制作した専用ハードウェアを使う方法と、
+RaspberryPiやArduinoを使ったPC経由による疑似接続を行う方法もあります。
+Elpisではどちらの接続もハードウェアサービスとして認識します。</p>
+<p>　ハードウェアをElpisに接続する前に、ハードウェアにはデバイスID、サービスID、
+その他ハードウェアをサービスとして操作する為の情報を予め記述して置きます。
+Elpisでは、それらの情報を用いてハードウェアを選択し実行するアプリを切り替えます。
+また、Elpisで取り扱うハードウェアには、ElpisのサーバーアドレスとElpisとHTTP通信をする為のテンプレートを用意してあります。</p>
+</div>
+<div class="section" id="id4">
+<h3>2). Elpis本体の動作<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>　ElpisはPythonを使って作られたフレームワークです。
+ハードウェア特有のリアルタイムな通信(0.01s程度)を処理するために必要最小限な機能を実装しました。
+また、Elpis本体には、常に高速な動作を常時行うハードウェアと、操作する一瞬しか通信しないWebAPIとの時間差を埋めるため、
+Elpis内部でDBを生成し、それぞれの時間差を吸収する方法で、作業の効率化をはかりました。</p>
+</div>
+<div class="section" id="elpisweb-api">
+<h3>3). ElpisとWEB-API<a class="headerlink" href="#elpisweb-api" title="Permalink to this headline">¶</a></h3>
+<p>　Elpisに接続されたハードウェアは全て、既存のWeb-APIと同じ手法(RestFullに近い形)で取り扱う事が出来ます。
+例えば、室温を計測するハードウェアに対して今の室温を知る為にはIDとサービス名を指定し、GETを送れば取得出来ます。
+また、ロボット等が繋がったハードウェアに対しても、IDとサービス名を指定しPUTをすればハードウェアを動かす事が出来ます。
+このように、ハードウェアをよりWebに近づかせる為の技術として、Elpisフレームワークがあります。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>§3　連絡先<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>　本記事の内容及び技術的ご質問について <a class="reference external" href="mailto:info&#37;&#52;&#48;artifactnoise&#46;com">info<span>&#64;</span>artifactnoise<span>&#46;</span>com</a> までご連絡ください。</p>
+<blockquote>
+<div>本開発は、ArtifactNoiseが普及を目指すメイドロボット、並びにメイド指向アーキテクチャを実現するための技術です。
+本技術及びアイディアをビジネスや企画でご活用いただける場合はご連絡ください。</div></blockquote>
+<p>　ビジネスに関するお問い合わせも、<a class="reference external" href="mailto:info&#37;&#52;&#48;artifactnoise&#46;com">info<span>&#64;</span>artifactnoise<span>&#46;</span>com</a> までご連絡ください。</p>
+</div>
+<div class="section" id="pdf">
+<h2>§4　本資料のPDFデータ<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://elpis.artifactnoise.com/Elpis/pdf/top/index.pdf">http://elpis.artifactnoise.com/Elpis/pdf/top/index.pdf</a></p>
+</div>
+<div class="section" id="id6">
+<h2>§ 管理情報<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2013/07/11</td>
+</tr>
+<tr class="field-even field"><th class="field-name">改良:</th><td class="field-body">2013/07/21 誤字修正</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">作成者:</th><td class="field-body">ArtifactNoise <a class="reference external" href="http://artifactnoise.com/">http://artifactnoise.com/</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">分類:</th><td class="field-body">Elpis</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">開発参加者:</th><td class="field-body">Yuta Kitagami , Shota Koshimizu.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Elpis 技術説明      [2013/07/21]</a><ul>
+<li><a class="reference internal" href="#id1">§0 本資料について</a></li>
+<li><a class="reference internal" href="#elpis">§1 Elpis とは何ですか？</a></li>
+<li><a class="reference internal" href="#id2">§2 Elpisはどのとうに動きますか？</a><ul>
+<li><a class="reference internal" href="#id3">1). Elpisとハードウェアの動作</a></li>
+<li><a class="reference internal" href="#id4">2). Elpis本体の動作</a></li>
+<li><a class="reference internal" href="#elpisweb-api">3). ElpisとWEB-API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">§3　連絡先</a></li>
+<li><a class="reference internal" href="#pdf">§4　本資料のPDFデータ</a></li>
+<li><a class="reference internal" href="#id6">§ 管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Elpis FrameWork</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="youscase.html"
+                        title="next chapter">Elpis 利用シーン     [2013/08/01]</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/top/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="youscase.html" title="Elpis 利用シーン [2013/08/01]"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Elpis FrameWork"
+             >previous</a> |</li>
+        <li><a href="../index.html">Elpis-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, ArtifactNoise..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>

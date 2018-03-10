@@ -1,0 +1,34 @@
+{
+    "embeddedFonts" :
+    [[
+	"HiraKakuPro-W3.otf",
+	"HiraKakuPro-W6.otf",
+	"HiraKakuStd-W8.otf",
+	"HiraKakuStdN-W8.otf",
+	"HiraMaruPro-W4.otf",
+	"HiraMaruProN-W4.otf",
+	"HiraMinPro-W3.otf",
+	"HiraMinPro-W6.otf"
+    ]],
+    "fontsAlias" : {
+        "stdFont": "HiraKakuPro-W3.otf",
+        "stdBold": "HiraKakuPro-W3.otf",
+        "stdItalic":"HiraKakuPro-W3.otf",
+        "stdMono": "HiraKakuPro-W3.otf"
+    },
+    "styles" : [
+        ["base" , {
+            "wordWrap": "CJK",
+	    "fontName": "HiraKakuPro-W3"
+        }],
+        ["literal" , {
+            "wordWrap": "None"
+        }],
+        ["normal" , {
+	    "fontName": "HiraKakuPro-W3"
+        }],
+        ["title" , {
+	    "fontName": "HiraKakuPro-W3"
+        }]
+     ]
+ }

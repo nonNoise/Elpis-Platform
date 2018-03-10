@@ -1,0 +1,1 @@
+Search.setIndex({envversion:46,filenames:["document"],objects:{},objnames:{},objtypes:{},terms:{content:0},titles:["Welcome to Elpis API&#8217;s&#8216;s documentation!"],titleterms:{api:0,document:0,elpi:0,indic:0,tabl:0,welcom:0}})

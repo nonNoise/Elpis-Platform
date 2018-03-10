@@ -1,0 +1,299 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>呼び鈴 API ‘Elpis-SW-API’ [2014/07/22] &mdash; Elpis-Note 1.3 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Elpis-Note 1.3 documentation" href="../../index.html" />
+    <link rel="next" title="AC100Vコントロール API ‘Elpis-ACLine-API’ [2014/07/22]" href="../ACLine-API/index.html" />
+    <link rel="prev" title="テープLED API ‘Elpis-LED-API’ [2014/07/22]" href="../LED-API/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ACLine-API/index.html" title="AC100Vコントロール API ‘Elpis-ACLine-API’ [2014/07/22]"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../LED-API/index.html" title="テープLED API ‘Elpis-LED-API’ [2014/07/22]"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Elpis-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="api-elpis-sw-api-2014-07-22">
+<h1>呼び鈴 API &#8216;Elpis-SW-API&#8217;          [2014/07/22]<a class="headerlink" href="#api-elpis-sw-api-2014-07-22" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>§0 本資料について<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>　本資料は、ArtifactNoiseが制作した資料であり、一部開発中の物も含まれている場合があります。</p>
+<p>　最新の情報、ご質問等は <a class="reference external" href="mailto:info&#37;&#52;&#48;ArtifactNoise&#46;com">info<span>&#64;</span>ArtifactNoise<span>&#46;</span>com</a> までご連絡ください。</p>
+</div>
+<div class="section" id="id2">
+<h2>§1.概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>　ネット上から呼び出しが出来る呼び鈴です。</p>
+<p>　APIは超シンプルで、呼び出しスイッチのONOFF、呼び出しのアラームのみ。</p>
+<p>　機能は単純でも応用は無限大。サービスのきっかけ作りにいかがでしょうか。</p>
+<a class="reference internal image-reference" href="../../_images/20140808_225332753_iOS.jpg"><img alt="../../_images/20140808_225332753_iOS.jpg" src="../../_images/20140808_225332753_iOS.jpg" style="width: 244.8px; height: 326.4px;" /></a>
+</div>
+<div class="section" id="api">
+<h2>§2.API 情報<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">API Name:</th><td class="field-body">Elpis-SW-API</td>
+</tr>
+<tr class="field-even field"><th class="field-name">開発日:</th><td class="field-body">2014/07/22</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">開発リーダー:</th><td class="field-body">ArtifactNoise Yuta Kitagami.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">プロジェクト参加者:</th><td class="field-body">YutaKitagami. Shota Kosimizu.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>§4.API リスト<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="url">
+<h3>(1) URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Method:</th><td class="field-body">POST</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>(2) リクエストパラメータ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="22%" />
+<col width="11%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+<th class="head">バージョン</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Beep</td>
+<td>ON/OFF</td>
+<td>ブザーを鳴らす際はON,止める際はOFF</td>
+<td>v1.0</td>
+<td>最長１秒で自動停止します</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h3>(4) 戻り値<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>戻り値に関しては、JSON形式になります。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="15%" />
+<col width="23%" />
+<col width="23%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">値</th>
+<th class="head">説明</th>
+<th class="head">バージョン</th>
+<th class="head">備考</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>bottan1</td>
+<td>on/off</td>
+<td>押されたらON,話したらOFF</td>
+<td>ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>bottan2</td>
+<td>on/off</td>
+<td>押されたらON,話したらOFF</td>
+<td>ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>OK</td>
+<td>問題無ければOK、あればError</td>
+<td>ver1.0</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h3>(5) サンプルコード<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><strong>POST</strong></p>
+<p>{&#8220;Beep&#8221;:&#8221;OFF&#8221;}</p>
+<p><strong>Return</strong></p>
+<p>{&#8220;bottan1&#8221;:&#8221;on&#8221;,&#8221;bottan2&#8221;:&#8221;OFF&#8221;,&#8221;state&#8221;,&#8221;OK&#8221;}</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>§5.写真<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/20140809_124223709_iOS.jpg"><img alt="../../_images/20140809_124223709_iOS.jpg" src="../../_images/20140809_124223709_iOS.jpg" style="width: 244.8px; height: 326.4px;" /></a>
+<a class="reference internal image-reference" href="../../_images/sw01.png"><img alt="../../_images/sw01.png" src="../../_images/sw01.png" style="width: 235.1px; height: 165.3px;" /></a>
+</div>
+<div class="section" id="id8">
+<h2>§6.修正履歴<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/07/22</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h2>§6.連絡先<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>　本記事の内容及び技術的ご質問について <a class="reference external" href="mailto:info&#37;&#52;&#48;artifactnoise&#46;com">info<span>&#64;</span>artifactnoise<span>&#46;</span>com</a> までご連絡ください。</p>
+<p>　ビジネスに関してのお問い合わせも、<a class="reference external" href="mailto:info&#37;&#52;&#48;artifactnoise&#46;com">info<span>&#64;</span>artifactnoise<span>&#46;</span>com</a> までご連絡ください。</p>
+<div class="section" id="pdf">
+<h3>§7.本資料のPDFデータ<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>§ 管理情報<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/07/22</td>
+</tr>
+<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">ArtifactNoise <a class="reference external" href="http://artifactnoise.com">http://artifactnoise.com</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">分類:</th><td class="field-body">Elpis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">開発参加者:</th><td class="field-body">Yuta Kitagami , Shota Koshimizu.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">呼び鈴 API &#8216;Elpis-SW-API&#8217;          [2014/07/22]</a><ul>
+<li><a class="reference internal" href="#id1">§0 本資料について</a></li>
+<li><a class="reference internal" href="#id2">§1.概要</a></li>
+<li><a class="reference internal" href="#api">§2.API 情報</a></li>
+<li><a class="reference internal" href="#id3">§4.API リスト</a><ul>
+<li><a class="reference internal" href="#url">(1) URL</a></li>
+<li><a class="reference internal" href="#id4">(2) リクエストパラメータ</a></li>
+<li><a class="reference internal" href="#id5">(4) 戻り値</a></li>
+<li><a class="reference internal" href="#id6">(5) サンプルコード</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">§5.写真</a></li>
+<li><a class="reference internal" href="#id8">§6.修正履歴</a></li>
+<li><a class="reference internal" href="#id9">§6.連絡先</a><ul>
+<li><a class="reference internal" href="#pdf">§7.本資料のPDFデータ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">§ 管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../LED-API/index.html"
+                        title="previous chapter">テープLED API &#8216;Elpis-LED-API&#8217;              [2014/07/22]</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../ACLine-API/index.html"
+                        title="next chapter">AC100Vコントロール API &#8216;Elpis-ACLine-API&#8217;             [2014/07/22]</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/Service/SW-API/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ACLine-API/index.html" title="AC100Vコントロール API ‘Elpis-ACLine-API’ [2014/07/22]"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../LED-API/index.html" title="テープLED API ‘Elpis-LED-API’ [2014/07/22]"
+             >previous</a> |</li>
+        <li><a href="../../index.html">Elpis-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, ArtifactNoise..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
+    </div>
+  </body>
+</html>
